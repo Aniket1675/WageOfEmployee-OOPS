@@ -177,6 +177,41 @@ public class EmployeeWage
         totalEmpWage = totalEmpHrs * EMP_RATE_PER_HR;
         System.out.println(" Employee Wages For a Month: " + totalEmpWage);
     }
+    public int multipleCompanies(String company, int empRatePerHour, int numOfWorkingDays, int maxHourPerMonth)
+    {
+        final int IS_PART_TIME = 1;
+        final int IS_FULL_TIME = 2;
+
+        int empHrs = 0;
+        int	totalEmpWage = 0;
+        int	totalEmpHrs = 0;
+        int	totalWorkingDays = 0;
+
+        while (totalEmpHrs <= maxHourPerMonth && totalWorkingDays < numOfWorkingDays)
+        {
+            totalWorkingDays++;
+            int empCheck = (int) Math.floor(Math.random() * 10) % 3;
+            switch (empCheck)
+            {
+                case IS_FULL_TIME:
+                    empHrs = 8;
+                    break;
+                case IS_PART_TIME:
+                    empHrs = 4;
+                    break;
+                default:
+                    empHrs = 0;
+            }
+            totalEmpHrs += empHrs;
+            System.out.println(" Day: " + totalWorkingDays);
+            System.out.println(" Daily Employee Hour: " + empHrs);
+            System.out.println(" Total Employee hour: " + totalEmpHrs);
+            System.out.println(" ");
+        }
+        totalEmpWage = totalEmpHrs * empRatePerHour;
+        System.out.println(" Employee Wages For a Month: " + totalEmpWage);
+        return totalEmpWage;
+    }
 
 
     public static void main(String[] args)
@@ -187,5 +222,9 @@ public class EmployeeWage
         employeeWage.partTime();
         employeeWage.wageForMonth();
         employeeWage.conditionalWage();
+        System.out.println("Total Employee wage for 1st company");
+        employeeWage.multipleCompanies("Google",20,20,100 );
+        System.out.println("Total Employee wage for 2nd company");
+        employeeWage.multipleCompanies("Amazon",15,20,100 );
     }
 }
