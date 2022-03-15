@@ -105,6 +105,41 @@ public class EmployeeWage
         System.out.println("The Wage of the Employee is: " + " " + empWage);
         System.out.println(" ");
     }
+    //UC5: Calculating Wages for Month
+    public void wageForMonth()
+    {
+        int IS_FULL_TIME = 1;
+        int IS_PART_TIME = 2;
+        int EMP_RATE_PER_HOUR = 10;
+        int WORKING_DAYS_IN_MONTH = 20;
+
+        // Variables
+        int empHrs = 0;
+        int empWage = 0;
+
+        // Computation
+        double empCheck = Math.floor(Math.random() * 10) % 3;
+
+        if (empCheck == IS_PART_TIME)
+        {
+            empHrs = 4;
+            System.out.println("Employee is PartTime");
+        }
+        else if (empCheck == IS_FULL_TIME)
+        {
+            empHrs = 8;
+            System.out.println("Employee is FullTime");
+        }
+        else
+        {
+            System.out.println("Employee is Absent");
+        }
+
+        // Formula
+        empWage = empHrs * EMP_RATE_PER_HOUR * WORKING_DAYS_IN_MONTH;
+        System.out.println("The total Monthly Salary of Employee is: " + empWage);
+    }
+
 
 
     public static void main(String[] args)
@@ -113,5 +148,6 @@ public class EmployeeWage
         employeeWage.isPresentOrAbsent();
         employeeWage.dailyWage();
         employeeWage.partTime();
+        employeeWage.wageForMonth();
     }
 }
