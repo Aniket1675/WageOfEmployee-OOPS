@@ -125,6 +125,10 @@ class EmployeeWageComputation implements IEmployeeWageComputation
         }
 
     }
+    public int getTotalEmpWage(String companyName)
+    {
+        return totalEmpWages.get(companyName);
+    }
 
     public static void main(String args[])
     {
@@ -134,5 +138,8 @@ class EmployeeWageComputation implements IEmployeeWageComputation
         employeeWageComputation.addCompany("Amazon", 19, 10, 150);
         employeeWageComputation.calculateTotalWage();
         employeeWageComputation.printTotalEmpWages();
+        String query = "Google";
+        int totalWage = employeeWageComputation.getTotalEmpWage(query);
+        System.out.println("Total Employee Wage for " + query + " company is " + totalWage);
     }
 }
