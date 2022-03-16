@@ -1,6 +1,6 @@
 package com.bridgelabz.employee;
 
-public class EmployeeWage 
+public class EmployeeWage
 {
     // UC1: Checking if the employee is present or absent
     public void isPresentOrAbsent() 
